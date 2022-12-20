@@ -25,14 +25,21 @@ public with sharing class CreateContactContentVersion_Test {
 
     @isTest
     public static void test_getDocuments(){
+        Test.startTest();
+        
         List<Document_Type__mdt> documentList = [SELECT Id, Label FROM Document_Type__mdt];
         List<Document_Type__mdt> test_documentList = CreateContactContentVersion.getDocuments();
 
         System.assertEquals(documentList.size(),test_documentList.size());
+        
+        Test.stopTest();
     }
     
     @isTest
     public static void test_createFiles(){
+        
+        Test.startTest();
+        
         List<Document_Type__mdt> documentList = [SELECT Id, Label FROM Document_Type__mdt];
         List<Id> documentIds = new List<Id>();
         for(Document_Type__mdt doc : documentList){
@@ -43,5 +50,7 @@ public with sharing class CreateContactContentVersion_Test {
         List<ContentVersion> fileList = [SELECT Id FROM ContentVersion];
         
         System.assertEquals(6, fileList.size());
+        
+        Test.stopTest();
     }
 }
