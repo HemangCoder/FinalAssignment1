@@ -53,4 +53,15 @@ public with sharing class CreateContactContentVersion_Test {
         
         Test.stopTest();
     }
+    
+    @isTest
+    public static void test_createFilesWithEmptyData(){
+        try{
+            CreateContactContentVersion.createFiles('','');
+        }
+        catch(CreateContactContentVersion.MyException ex){
+           System.assert(ex.getMessage().contains('Please select Contacts and Documents'));
+        }
+    }
+    
 }
