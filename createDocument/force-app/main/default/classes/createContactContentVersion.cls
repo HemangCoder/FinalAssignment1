@@ -26,7 +26,7 @@ public with sharing class CreateContactContentVersion {
         List<ContentVersion> fileList = new List<ContentVersion>();
         for(Contact con : conList){
             for(Document_Type__mdt doc : documentTypeList){
-                ContentVersion file1 = new ContentVersion(Title=con.FirstName+' '+doc.Label, VersionData=Blob.valueOf(con.FirstName+'\n'+con.LastName+'\n'+con.Description+'\n'+con.Account.Name), PathOnClient=doc.Label);
+                ContentVersion file1 = new ContentVersion(Title=con.FirstName+' '+doc.Label, VersionData=Blob.valueOf(con.FirstName+'\n'+con.LastName+'\n'+con.Description+'\n'+con.Account.Name), PathOnClient=doc.Label, Contact__c = con.Id);
                 fileList.add(file1);
             }
             
