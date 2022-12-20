@@ -23,12 +23,14 @@
                     alternative-text="Loading..." variant="brand">
                 </lightning-spinner>
             </div>
-            <lightning-datatable class="slds-p-around_large"
-            data={recordsToDisplay} 
-            columns={columns} 
-            key-field="Id" 
-            onrowselection={getSelectedRecords}>
-            </lightning-datatable>
+            <div class="slds-theme_shade">
+                <lightning-datatable class="slds-p-around_large"
+                data={recordsToDisplay} 
+                columns={columns} 
+                key-field="Id" 
+                onrowselection={getSelectedRecords}>
+                </lightning-datatable>
+            </div>
             <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread" style="padding-top: 0.5em;">
                 <!--RECORDS PER PAGE-->
                 <div class="slds-col">
@@ -60,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <lightning-button label="Create Documents" variant="brand" onclick={handleDocument} class="slds-align_absolute-center"> 
+            <lightning-button label="Create Documents" variant="brand" onclick={handleDocument} class="slds-align_absolute-center slds-m-around_medium"> 
             </lightning-button>
         </template>
 </div>
